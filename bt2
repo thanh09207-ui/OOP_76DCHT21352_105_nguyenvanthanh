@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct NhanVien {
+    string maNV;
+    string tenNV;
+    double luongCoBan;
+    double heSo;
+};
+void nhapNhanVien(NhanVien &nv) {
+    cout << "Nhap ma nhan vien: ";
+    getline(cin >> ws, nv.maNV);
+    cout << "Nhap ten nhan vien: ";
+    getline(cin, nv.tenNV);
+    cout << "Nhap luong co ban: ";
+    cin >> nv.luongCoBan;
+    cout << "Nhap he so luong: ";
+    cin >> nv.heSo;
+}
+void xuatNhanVien(const NhanVien &nv) {
+    cout << left << setw(12) << nv.maNV 
+         << setw(25) << nv.tenNV 
+         << setw(15) << fixed << setprecision(0) << nv.luongCoBan 
+         << setw(10) << setprecision(2) << nv.heSo << "\n";
+}
