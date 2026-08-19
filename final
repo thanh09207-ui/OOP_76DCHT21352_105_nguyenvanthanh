@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct NhanVien {
+    string maNV;
+    string tenNV;
+    double luongCoBan;
+    double heSo;
+};
+
+void nhap(NhanVien &nv) {
+    cout << "Nhap ma nhan vien: ";
+    cin >> nv.maNV;
+    
+    cin.ignore();
+    cout << "Nhap ten nhan vien: ";
+    getline(cin, nv.tenNV);
+    
+    cout << "Nhap luong co ban: ";
+    cin >> nv.luongCoBan;
+    
+    cout << "Nhap he so: ";
+    cin >> nv.heSo;
+}
+
+void xuat(NhanVien nv) {
+    cout << "Ma NV: " << nv.maNV 
+         << " | Ten NV: " << nv.tenNV 
+         << " | Luong CB: " << nv.luongCoBan 
+         << " | He so: " << nv.heSo << endl;
+}
+
+int main() {
+    int n;
+    cout << "Nhap so luong nhan vien (n): ";
+    cin >> n;
+    NhanVien* danhSachNV = new NhanVien[n];
+
+    cout << "\n--- NHAP THONG TIN NHAN VIEN ---\n";
+    for (int i = 0; i < n; ++i) {
+        cout << "Nhap thong tin nhan vien thu " << i + 1 << ":\n";
+        nhap(danhSachNV[i]);
+        cout << "-----------------------\n";
+    }
+    cout << "\n--- DANH SACH NHAN VIEN ---\n";
+    for (int i = 0; i < n; ++i) {
+        xuat(danhSachNV[i]);
+    }
+    delete[] danhSachNV;
+
+    return 0;
+}
